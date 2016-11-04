@@ -1,13 +1,11 @@
 public class JsonEncoderImpl implements api.week1.JsonEncoder {
   
   public String toJson( String str ) {
-    // TODO: implement this method
-    return "";
+    return "\"" + str.replace("\\", "\\\\").replace("\"", "\\\"") + "\"";
   }
   
   public String toJson( Number n ) {
-    // TODO: implement this method
-    return "0.0";
+    return n.doubleValue() + "";
   }
   
   public String toJson( java.util.Map map ) {
@@ -16,10 +14,17 @@ public class JsonEncoderImpl implements api.week1.JsonEncoder {
     for( Object key : map.keySet() ) {
       if ( !first ) ret += ",";
       else first = false;
-      Object value = map.get(key);
-      
-      // TODO: change this implementation.
-      ret += "\"key\": \"value\"";
+
+      String valueStr = "";
+      if(map.get(key) instanceof String) {
+        String value = (String) map.get(key);
+        valueStr = toJson(value);
+      } else if(map.get(key) instanceof Number || map.get(key) instanceof Integer || map.get(key) instanceof Float || map.get(key) instanceof Double) {
+        Number value = (Number) map.get(key);
+        valueStr = toJson(value);
+      }
+
+      ret += toJson((String)key) + ": " + valueStr;
     }
     return ret + "}";
   }
