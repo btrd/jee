@@ -1,5 +1,6 @@
 package user.dao;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -15,16 +16,18 @@ public class UserJDBCDao implements UserDao {
 
 	public User find(String email) {
 		User user = null;
-		
-		// TODO : complete query
-		String query = "SELECT * FROM ...";
-		
-		Connection conn = null;
+
 		try {
-			ResultSet rs = conn.createStatement().executeQuery( query );
-			
-			// TODO : use resultSet, map to User;
-			user = new User();
+			PreparedStatement statement = conn.prepareStatement("SELECT * FROM user WHERE email=?");
+			statement.setString(1, email);
+
+			ResultSet rs = statement.executeQuery();
+
+			String nom = rs.getString("lastname");
+			String prenom = rs.getString("firstname");
+			String motdepasse = rs.getString("pwd");
+
+			user = new User(email, nom, prenom, motdepasse);
 			
 			rs.close();
 		} catch ( SQLException e ) {
@@ -35,33 +38,37 @@ public class UserJDBCDao implements UserDao {
 	}
 
 	public void delete(String email) {
-		// TODO : complete query
-		String query = "DELETE FROM ...";
-		
 		try {
-			conn.createStatement().executeUpdate(query);
+			PreparedStatement statement = conn.prepareStatement("DELETE FROM user where email=?");
+			statement.setString(1, email);
+
+			statement.executeUpdate();
 		} catch(SQLException e) {
 			throw new Error("Unable to delete User " + email, e);
 		}
 	}
 
 	public void create(User user) {
-		// TODO : complete query
-		String query = "INSERT INTO ...";
-		
 		try {
-			conn.createStatement().executeUpdate(query);
+			PreparedStatement statement = conn.prepareStatement("INSERT INTO user VALUES(?, ?, ?, ?)");
+			statement.setString(1, user.getMail());
+			statement.setString(2, user.getNom());
+			statement.setString(3, user.getPrenom());
+			statement.setString(4, user.getMotDePasse());
+			statement.executeUpdate();
 		} catch(SQLException e) {
 			throw new Error("Unable to insert User " + user, e);
 		}
 	}
 
 	public void update(User user) {
-		// TODO : complete query
-		String query = "UPDATE ... SET ...";
-		
 		try {
-			conn.createStatement().executeUpdate(query);
+			PreparedStatement statement = conn.prepareStatement("UPDATE user SET lastname=?, firstname=?, pwd=? WHERE email=?");
+			statement.setString(1, user.getNom());
+			statement.setString(2, user.getPrenom());
+			statement.setString(3, user.getMotDePasse());
+			statement.setString(4, user.getMail());
+			statement.executeUpdate();
 		} catch(SQLException e) {
 			throw new Error("Unable to insert User " + user, e);
 		}
@@ -69,11 +76,13 @@ public class UserJDBCDao implements UserDao {
 
 
 	public boolean checkPassword(String email, String password) {
-		// TODO : complete query
-		String query = "SELECT ... WHERE ...";
-		
 		try {
-			ResultSet rs = conn.createStatement().executeQuery(query);
+			PreparedStatement statement = conn.prepareStatement("SELECT email FROM user WHERE email=? AND pwd=?");
+			statement.setString(1, email);
+			statement.setString(2, password);
+		
+
+			ResultSet rs = statement.executeQuery();
 			boolean exists = rs.next();
 			rs.close();
 			return exists;
