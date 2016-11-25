@@ -3,6 +3,7 @@ package fr.eservices.soaring.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Utilisateur {
@@ -14,4 +15,7 @@ public class Utilisateur {
   String motDePasse;
   String nom;
   String prenom;
+  
+  @ManyToOne
+  Profil profil;
 }

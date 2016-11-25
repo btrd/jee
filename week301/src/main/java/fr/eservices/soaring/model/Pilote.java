@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Pilote {
@@ -19,4 +20,7 @@ public class Pilote {
   int codePostal;
   String ville;
   int telPortable;
+  
+  @ManyToOne
+  Club club;
 }
