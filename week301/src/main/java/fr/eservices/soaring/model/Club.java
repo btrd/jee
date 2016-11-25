@@ -1,5 +1,15 @@
 package fr.eservices.soaring.model;
 
-public class Club {
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Entity;
 
+@Entity
+public class Club {
+	@Id
+	@GeneratedValue
+	int id;
+	
+	String ville;
+	String nom;
 }

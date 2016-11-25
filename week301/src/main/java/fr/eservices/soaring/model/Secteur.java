@@ -1,5 +1,15 @@
 package fr.eservices.soaring.model;
 
-public class Secteur {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
+public class Secteur {
+  @Id
+  @GeneratedValue
+  int id;
+  
+  String rayon;
+  String type;
 }
