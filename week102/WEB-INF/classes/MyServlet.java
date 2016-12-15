@@ -14,7 +14,7 @@ public class MyServlet extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String firstname = req.getParameter("prenom");
-		String lastname  = req.getParameter("name");
+		String lastname  = req.getParameter("nom");
 
 		Writer out = resp.getWriter();
 		out.write("<p>Bonjour <b>" + firstname + " " + lastname + "</b> !</p>");
