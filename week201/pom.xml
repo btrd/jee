@@ -3,6 +3,7 @@
   <groupId>fr.eservices.jean-bertrand</groupId>
   <artifactId>user-data</artifactId>
   <version>0.0.1</version>
+  <packaging>jar</packaging>
   <dependencies>
     <dependency>
       <groupId>org.xerial</groupId>
