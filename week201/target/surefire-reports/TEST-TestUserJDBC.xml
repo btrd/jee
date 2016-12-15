@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="7" failures="0" name="TestUserJDBC" time="0.228" errors="0" skipped="0">
+<testsuite tests="7" failures="0" name="TestUserJDBC" time="0.267" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_72.jdk/Contents/Home/jre/lib"/>
     <property name="java.vm.version" value="25.72-b15"/>
     <property name="gopherProxySet" value="false"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
-    <property name="maven.multiModuleProjectDirectory" value="/Users/janus24/S3/JEE/java_ee_spring-16/week201"/>
+    <property name="maven.multiModuleProjectDirectory" value="/Users/janus24/Documents/Cours/Master/S3/JEE/java_ee_spring-16/week201"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=":"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -32,7 +32,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="os.version" value="10.12.1"/>
+    <property name="os.version" value="10.12.2"/>
     <property name="user.home" value="/Users/janus24"/>
     <property name="user.timezone" value="Europe/Paris"/>
     <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
@@ -59,11 +59,11 @@
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="TestUserJDBC" name="update_Nominal" time="0.215"/>
-  <testcase classname="TestUserJDBC" name="create_Nominal" time="0.001"/>
-  <testcase classname="TestUserJDBC" name="delete_Nominal" time="0.003"/>
-  <testcase classname="TestUserJDBC" name="checkPassword_Inject1" time="0.003"/>
-  <testcase classname="TestUserJDBC" name="checkPassword_Inject2" time="0.002"/>
+  <testcase classname="TestUserJDBC" name="update_Nominal" time="0.246"/>
+  <testcase classname="TestUserJDBC" name="create_Nominal" time="0.002"/>
+  <testcase classname="TestUserJDBC" name="delete_Nominal" time="0.004"/>
+  <testcase classname="TestUserJDBC" name="checkPassword_Inject1" time="0.006"/>
+  <testcase classname="TestUserJDBC" name="checkPassword_Inject2" time="0.005"/>
   <testcase classname="TestUserJDBC" name="checkPassword_Nominal" time="0.003"/>
   <testcase classname="TestUserJDBC" name="find_Nominal" time="0.001"/>
 </testsuite>
