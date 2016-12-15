@@ -2,8 +2,11 @@ package fr.eservices.sample2.impl;
 
 import javax.swing.JOptionPane;
 
+import org.springframework.stereotype.Component;
+
 import fr.eservices.sample2.api.Printer;
 
+@Component
 public class SwingPrinter implements Printer {
 
 	@Override
