@@ -4,7 +4,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import fr.eservices.soaring.model.Club;
 import fr.eservices.soaring.model.Pilote;
+import fr.eservices.soaring.model.Region;
 import fr.eservices.soaring.model.Repas;
 
 public interface RegistrationDao {

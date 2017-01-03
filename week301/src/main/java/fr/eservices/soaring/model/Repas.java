@@ -9,12 +9,12 @@ import javax.persistence.Inheritance;
 
 @Entity
 @Inheritance
-public class Repas {
+public class Repas{
   @Id
   @GeneratedValue
   int id;
-  
+
   Date date;
-  int heure;
+  String heure;
   String menu;
 }

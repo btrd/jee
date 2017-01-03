@@ -9,7 +9,7 @@ public class PointPassage {
   @Id
   @GeneratedValue
   int id;
-  
+
   String nom;
   int lattitude;
   int longitude;

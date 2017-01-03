@@ -42,21 +42,21 @@ public class RegistrationJpa implements RegistrationDao {
 		ParameterExpression<String> param = cb.parameter(String.class);
 
 		criteria
-		.select( 
-				_pilote = criteria.from(Pilote.class) 
+		.select(
+				_pilote = criteria.from(Pilote.class)
 				)
 		.where(
 				cb.equal(_pilote.get("nom"), param)
 				);
 
-		TypedQuery<Pilote> q = em.createQuery( criteria );
+		TypedQuery<Pilote> q = em.createQuery( criteria);
 		q.setParameter(param, nom);
 		return q.getResultList();
 	}
 
 	@Override
 	public List<Pilote> findPilotsByRegion(int id_region) {
-		TypedQuery<Pilote> q = em.createQuery("SELECT p FROM Pilote p WHERE region_id = :region_id", Pilote.class);
+		TypedQuery<Pilote> q = em.createQuery("SELECT p FROM Pilote p JOIN p.club club JOIN club.region region WHERE region.id = :region_id", Pilote.class);
 		q.setParameter("region_id", id_region);
 		return q.getResultList();
 	}
@@ -70,13 +70,14 @@ public class RegistrationJpa implements RegistrationDao {
 
 	@Override
 	public List<Pilote> findPilotsBelow(Date currentDate, int age) {
-		TypedQuery<Pilote> q = em.createQuery("SELECT p FROM Pilote p WHERE dateNaissance < :year", Pilote.class);
-		
+		TypedQuery<Pilote> q = em.createQuery("SELECT p FROM Pilote p WHERE dateNaissance < :currentDate AND dateNaissance >= :year", Pilote.class);
+
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(currentDate);
 		cal.add(Calendar.YEAR, -age);
 		Date year = cal.getTime();
-		
+
+		q.setParameter("currentDate",currentDate);
 		q.setParameter("year", year);
 		return q.getResultList();
 	}

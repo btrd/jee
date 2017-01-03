@@ -3,20 +3,11 @@ package fr.eservices.soaring.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import fr.eservices.soaring.model.Status;
+import fr.eservices.soaring.model.Type;
 
 @Entity
 public class Epreuve {
-	public enum Status {
-		PREVU,
-		ANNULE,
-		PROVISOIRE,
-		NON_OFFICIEL,
-		OFFICIEL
-	}
-	public enum Type {
-		AAT,
-		AST
-	}
 
 	@Id
 	@GeneratedValue

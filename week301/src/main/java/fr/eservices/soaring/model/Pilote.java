@@ -12,15 +12,15 @@ public class Pilote {
   @Id
   @GeneratedValue
   int id;
-  
+
   String nom;
   String prenom;
   Date dateNaissance;
   String adresse;
-  int codePostal;
+  String codePostal;
   String ville;
-  int telPortable;
-  
+  String telPortable;
+
   @ManyToOne
   Club club;
 }

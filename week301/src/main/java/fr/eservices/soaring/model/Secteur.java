@@ -11,11 +11,12 @@ import javax.persistence.ManyToOne;
 public class Secteur implements Serializable {
 	@Id
 	@ManyToOne
-    @JoinColumn(name = "epreuve_id")
+	@JoinColumn(name = "epreuve_id")
 	Epreuve epreuve;
+
 	@Id
 	@ManyToOne
-    @JoinColumn(name = "pointPassage_id")
+	@JoinColumn(name = "pointPassage_id")
 	PointPassage pointPassage;
 
 	String rayon;

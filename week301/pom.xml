@@ -44,6 +44,11 @@
         <scope>test</scope>
     </dependency>
     
+    <dependency>
+        <groupId>fr.eservices.jean-bertrand</groupId>
+        <artifactId>check-jar</artifactId>
+        <version>1.2</version>
+    </dependency>
   </dependencies>
 
 </project>
