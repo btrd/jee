@@ -6,8 +6,10 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+import org.springframework.stereotype.Component;
+
 @Configuration
-@ComponentScan
+@ComponentScan(value="fr.eservices.sample1")
 public class Application {
 	
 	@Autowired
