@@ -3,7 +3,11 @@ package fr.eservices.sample2.impl;
 import javax.swing.JOptionPane;
 
 import fr.eservices.sample2.api.Printer;
+import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Qualifier;
 
+@Component
+@Qualifier("swing")
 public class SwingPrinter implements Printer {
 
 	@Override

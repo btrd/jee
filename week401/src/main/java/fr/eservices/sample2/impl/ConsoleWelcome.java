@@ -1,7 +1,11 @@
 package fr.eservices.sample2.impl;
 
 import fr.eservices.sample2.api.Welcome;
+import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Qualifier;
 
+@Component
+@Qualifier("console")
 public class ConsoleWelcome implements Welcome {
 
 	@Override
