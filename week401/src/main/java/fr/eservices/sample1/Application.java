@@ -5,6 +5,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+
 import org.springframework.stereotype.Component;
 
 @Configuration
@@ -18,10 +19,7 @@ public class Application {
 	@Autowired
 	Welcome welcome;
 	
-	public Application() {
-		
-		// TODO: First. Initialize properties. 
-	}
+	public Application() {}
 	
 	public void run() {
 		String name = welcome.askName();

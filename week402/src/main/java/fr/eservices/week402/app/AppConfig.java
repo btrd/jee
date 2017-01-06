@@ -1,13 +1,21 @@
 package fr.eservices.week402.app;
 
-// Set this class as a configuration class,
-// scan fr.eservices.week402.ctrl for components
-// enable spring web mvc
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+
+@Configuration
+@ComponentScan("fr.eservices.week402.ctrl")
+@EnableWebMvc
 public class AppConfig {
 
-	// Add a method to provide an InternalResourceViewResolver,
-	// put views in /WEB-INF/views
-	// all views would be some jsp
-
-
+  @Bean
+    public InternalResourceViewResolver jspViewResolver() {
+        InternalResourceViewResolver bean = new InternalResourceViewResolver();
+        bean.setPrefix("/");
+        bean.setSuffix(".jsp");
+        return bean;
+    }
 }

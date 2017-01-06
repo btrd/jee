@@ -1,5 +1,6 @@
 package fr.eservices.sample2.api;
 
+import org.springframework.stereotype.Component;
 
 public interface Welcome {
 	/**

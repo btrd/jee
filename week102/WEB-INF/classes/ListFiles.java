@@ -52,7 +52,7 @@ public class ListFiles extends HttpServlet {
       });
     
     Writer out = resp.getWriter();
-    String json = ""; // new JsonEncoderImpl().toJson( files );
+    String json = new JsonEncoderImpl().toJson( files );
     out.write( json );
 	}
 

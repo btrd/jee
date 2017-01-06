@@ -2,6 +2,8 @@ package fr.eservices.sample2.impl;
 
 import javax.swing.JOptionPane;
 
+import org.springframework.stereotype.Component;
+
 import fr.eservices.sample2.api.Welcome;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;

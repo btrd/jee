@@ -4,14 +4,24 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import fr.eservices.week402.model.TimeObject;
 
+@RestController
+@RequestMapping("/simple")
 public class SimpleController {
 	
-	public String add(int a, int b) {
+	@RequestMapping("/add")
+	public String add(
+			@RequestParam(value="a", required=true)int a,
+			@RequestParam(value="b", required=true)int b) {
 		return Integer.toString(a + b);
 	}
 	
+	@RequestMapping("/time")
 	public TimeObject getTime() {
 		TimeObject t = new TimeObject();
 		Date now = new Date();
@@ -21,7 +31,4 @@ public class SimpleController {
 		t.timestamp = (long) (now.getTime() / 1000);
 		return t;
 	}
-	
-	
-
 }

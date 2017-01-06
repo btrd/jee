@@ -1,5 +1,7 @@
 package fr.eservices.sample2.api;
 
+import org.springframework.stereotype.Component;
+
 public interface Printer {
 	/**
 	 * Print a message

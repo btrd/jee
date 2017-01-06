@@ -7,24 +7,33 @@ public class User {
 	private String nom;
 	private String motDePasse;
 	
-	
+	public User(String mail, String nom, String prenom, String motDePasse) {
+		setMail(mail);
+		setNom(nom);
+		setPrenom(prenom);
+		setMotDePasse(motDePasse);
+	}
+
+	public User() {
+	}
+
 	public String getMail() {
 		return mail;
 	}
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
-	public String getPrenom() {
-		return prenom;
-	}
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
-	}
 	public String getNom() {
 		return nom;
 	}
 	public void setNom(String nom) {
 		this.nom = nom;
+	}
+	public String getPrenom() {
+		return prenom;
+	}
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
 	}
 	public String getMotDePasse() {
 		return motDePasse;
